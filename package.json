@@ -1,0 +1,73 @@
+{
+  "name": "@blinkmobile/buildbot-cli",
+  "version": "1.0.0",
+  "description": "CLI for Blink Mobiles Cloud based Hybrid app builders",
+  "main": "index.js",
+  "scripts": {
+    "ava": "ava",
+    "lint": "eslint .",
+    "make-docs": "jsdoc index.js ./lib ./commands -d ./jsdocs",
+    "test": "npm-run-all lint ava",
+    "eslint": "eslint --fix --cache .",
+    "fixpack": "fixpack"
+  },
+  "author": "Simon Dobie",
+  "license": "BSD-3-Clause",
+  "devDependencies": {
+    "ava": "^0.15.2",
+    "eslint": "^2.11.1",
+    "eslint-config-semistandard": "^6.0.2",
+    "eslint-config-standard": "^5.3.1",
+    "eslint-plugin-promise": "^1.0.8",
+    "eslint-plugin-standard": "^1.2.0",
+    "fixpack": "^2.3.1",
+    "jsdoc": "^3.4.0",
+    "mockery": "^1.4.1",
+    "npm-run-all": "^2.2.2",
+    "yauzl": "^2.6.0"
+  },
+  "dependencies": {
+    "@blinkmobile/blinkmrc": "1.1.0",
+    "@blinkmobile/bm-identity": "2.0.0",
+    "@jokeyrhyme/pify-fs": "1.0.1",
+    "aws-sdk": "^2.5.3",
+    "archiver": "1.0.0",
+    "execa": "^0.4.0",
+    "inquirer": "^1.0.3",
+    "meow": "3.7.0",
+    "object-merge": "2.5.1",
+    "temp": "^0.8.3",
+    "update-notifier": "^1.0.2",
+    "uuid-validate": "^0.0.2",
+    "valid-email": "0.0.2",
+    "xml2js": "^0.4.16"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "blinkm-buildbot": "./bin/index.js"
+  },
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blinkmobile/buildbot-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/blinkmobile/buildbot-cli/issues"
+  },
+  "homepage": "https://github.com/blinkmobile/buildbot-cli#readme",
+  "keywords": [
+    "BlinkMobile",
+    "Cli",
+    "Mobility"
+  ],
+  "engines": {
+    "node": ">=6",
+    "npm": ">=3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
