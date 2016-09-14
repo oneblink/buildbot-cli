@@ -27,21 +27,21 @@ By contributing you agree to the [LICENSE](LICENSE) of this repository.
 
 ### Bug Reports
 
-- please report bugs in the [issue tracker](https://github.com/blinkmobile/builtbot-cli/issues)
+- please report bugs in the [issue tracker](https://github.com/blinkmobile/buildbot-cli/issues)
 
 - please provide detailed steps to reproduce
 
 
 ### Feature Requests
 
-- please suggest new features and improvements in the [issue tracker](https://github.com/blinkmobile/builtbot-cli/issues)
+- please suggest new features and improvements in the [issue tracker](https://github.com/blinkmobile/buildbot-cli/issues)
 
 
 ### Personal Support Requests
 
 - please submit urgent requests for help via our commercial support channels
 
-- requests for help in the [issue tracker](https://github.com/blinkmobile/builtbot-cli/issues) receive lower priority than commercial support requests
+- requests for help in the [issue tracker](https://github.com/blinkmobile/buildbot-cli/issues) receive lower priority than commercial support requests
 
 
 ## Pull Requests / Merge Requests
