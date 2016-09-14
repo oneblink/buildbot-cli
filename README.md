@@ -5,16 +5,16 @@ This tool is for starting the BlinkMobile Buildbot process.
 ## Installation
 
 ```
-npm install -g @blinkmobile/cli @blinkmobile/identity-cli @blinkmobile/builtbot-cli
+npm install -g @blinkmobile/cli @blinkmobile/identity-cli @blinkmobile/buildbot-cli
 ```
 
 ## Usage
 
-`blinkm builtbot --help`
+`blinkm buildbot --help`
 
 or, shorter
 
-`bm builtbot --help`
+`bm buildbot --help`
 
 ### Submitting an app for building
 
