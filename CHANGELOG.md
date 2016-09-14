@@ -2,6 +2,8 @@
 
 ## Next
 
+## 1.1.1 - 2016-09-14
+
 ### Fixed
 
 - NBC-30: Typos in `CONTRIBUTING.md` and `README.md`
