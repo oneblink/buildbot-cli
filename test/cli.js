@@ -2,18 +2,13 @@
 
 const path = require('path');
 
-const fs = require('@jokeyrhyme/pify-fs');
+const npmBinTester = require('npm-bin-ava-tester');
 const test = require('ava');
 const execa = require('execa');
 
+npmBinTester(test);
+
 const CLI_PATH = path.join(__dirname, '..', 'bin', 'index.js');
-
-test('bin/index.js is executable', (t) => fs.access(CLI_PATH, fs.X_OK));
-
-test('bin/index.js has no CRLF', (t) => {
-  return fs.readFile(CLI_PATH, 'utf8')
-    .then((data) => t.is(data.indexOf('\r\n'), -1));
-});
 
 test('bin/index.js --help', (t) => {
   return execa('node', [ CLI_PATH, '--help' ])
