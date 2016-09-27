@@ -31,7 +31,7 @@
     "@blinkmobile/blinkmrc": "1.1.0",
     "@blinkmobile/bm-identity": "2.1.0",
     "@jokeyrhyme/pify-fs": "1.0.1",
-    "aws-sdk": "^2.5.3",
+    "aws-sdk": "^2.6.5",
     "archiver": "1.1.0",
     "execa": "^0.4.0",
     "inquirer": "^1.0.3",
