@@ -2,6 +2,8 @@
 
 ## Next
 
+## 1.2.0
+
 ### Added
 
 - NBC-31: Upload functionality to `bm buildbot evergreen` cmd
