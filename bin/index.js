@@ -16,20 +16,22 @@ const cli = meow({
   help,
   version: true
 }, {
-  boolean: ['force', 'unset'],
+  boolean: [
+    'force',
+    'unset',
+    'debug',
+    'release'
+  ],
   default: {
+    debug: true,
+    release: false,
     force: false,
     type: 'cordova'
   },
   string: [
-    'buildMode',
     'platforms',
     'notify',
-    'type',
-    'username',
-    'password',
-    'email',
-    'sms'
+    'type'
   ]
 });
 

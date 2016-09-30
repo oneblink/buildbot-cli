@@ -50,7 +50,17 @@ function build (input, flags, options) {
     return Promise.reject('Must supply the --platforms flag with a comma seperated list of platforms. E.g. --platforms android,ios,windows');
   }
   const src = input[0] || process.cwd();
-  const buildMode = flags.buildMode || constants.BUILD_MODES.DEBUG;
+  let buildMode = constants.BUILD_MODES.DEBUG;
+  // Leaving buildMode flag in for backward compatibility
+  if (flags.buildMode) {
+    console.log(`
+'--buildMode' flag has been deprecated and will be removed in a future release.
+Please use the '--release' and '--debug' flags instead.
+`);
+    buildMode = flags.buildMode;
+  } else if (flags.release) {
+    buildMode = constants.BUILD_MODES.RELEASE;
+  }
   const platforms = flags.platforms.split(',').map((p) => p.trim());
 
   // Before we start the buildbot process, will need to do the following:
