@@ -14,11 +14,8 @@ function execute (input, flags, options) {
     return Promise.reject(new Error(`Unknown --type: "${flags.type}"`));
   }
 
-  return Promise.resolve()
-    .then(() => {
-      console.info('Running "cordova prepare", this may take a few seconds...');
-      return execa('cordova', ['prepare'], { cwd: projectPath });
-    })
+  console.info('Running "cordova prepare", this may take a few seconds...');
+  return execa('cordova', ['prepare'], { cwd: projectPath })
     .catch((err) => {
       console.log(`Current working directory: ${projectPath}`);
       return Promise.reject(err);

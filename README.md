@@ -81,5 +81,5 @@ for available commands.
 
 To zip resources for a project and upload:  
 ```sh
-bm buildbot evergreen <path-to-project-root> [--force] [--upload]
+bm buildbot evergreen <path-to-project-root> [--force]
 ```
