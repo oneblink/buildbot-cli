@@ -20,12 +20,14 @@ const cli = meow({
     'force',
     'unset',
     'debug',
-    'release'
+    'release',
+    'upload' // meow will also allow --no-upload from cmd line
   ],
   default: {
     debug: true,
     release: false,
     force: false,
+    upload: true,
     type: 'cordova'
   },
   string: [
