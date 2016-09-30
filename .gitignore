@@ -42,3 +42,6 @@ testMap/
 jsdocs/
 
 .eslintcache
+
+#VS Code
+.vscode

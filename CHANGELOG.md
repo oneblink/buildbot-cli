@@ -2,6 +2,18 @@
 
 ## Next
 
+### Added
+
+- NBC-31: Upload functionality to `bm buildbot evergreen` cmd
+
+ - Added `--upload` and `--no-upload` flags
+
+### Deprecated
+
+- NBC-31: `--buildMode` flag from `bm buildbot buildbot` cmd
+
+ - Replaced with `--release` and `--debug` flags
+
 ## 1.1.1 - 2016-09-14
 
 ### Fixed

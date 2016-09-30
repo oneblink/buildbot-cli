@@ -16,20 +16,24 @@ const cli = meow({
   help,
   version: true
 }, {
-  boolean: ['force', 'unset'],
+  boolean: [
+    'force',
+    'unset',
+    'debug',
+    'release',
+    'upload' // meow will also allow --no-upload from cmd line
+  ],
   default: {
+    debug: true,
+    release: false,
     force: false,
+    upload: true,
     type: 'cordova'
   },
   string: [
-    'buildMode',
     'platforms',
     'notify',
-    'type',
-    'username',
-    'password',
-    'email',
-    'sms'
+    'type'
   ]
 });
 

@@ -1,4 +1,5 @@
 'use strict';
+
 const path = require('path');
 
 const temp = require('temp');
@@ -15,23 +16,18 @@ const pluginHelper = require('../lib/plugin-helper.js');
 
 function upload (src, credentials) {
   return archive(src)
-    .then(archive => s3UploaderFactory(archive, credentials))
-    .then(uploader => {
-      return new Promise((resolve, reject) => {
-        console.log('Transferring project');
-        uploader.send((err, data) => {
-          if (err) {
-            return reject(err);
-          }
-          temp.cleanup();
-          resolve(data.Key);
-        });
-      });
+    .then(archive => {
+      console.log('Transferring project');
+      return s3UploaderFactory(constants.BUILDBOT.BUCKET_NAME, path.basename(archive), archive, credentials);
+    })
+    .then(data => {
+      temp.cleanup();
+      return data.Key;
     });
 }
 
 const go = (platforms, userEmail, file, assumedRole, passwordsByPlatform, buildMode) => {
-  console.log('Attempting to start buildbot process' + platforms.length > 1 ? 'es' : '');
+  console.log('Attempting to start buildbot process' + (platforms.length > 1 ? 'es' : ''));
   return Promise.all(platforms.map(platform => {
     const signingInfo = passwordsByPlatform.get(platform);
     return startWorkflow({
@@ -41,16 +37,26 @@ const go = (platforms, userEmail, file, assumedRole, passwordsByPlatform, buildM
       platform,
       userEmail,
       buildMode
-    });
-  }));
+    }).then(() => console.log(`Buildbot process has been started for platform: ${platform}`));
+  })).then(() => console.log(`Notifications will be sent to: ${userEmail}`));
 };
 
 function build (input, flags, options) {
   if (!flags.platforms) {
-    return Promise.reject('Must supply the --platforms flag with a comma seperated list of platforms. E.g. --platforms android,ios,windows');
+    return Promise.reject(new Error('Must supply the --platforms flag with a comma seperated list of platforms. E.g. --platforms android,ios,windows'));
   }
   const src = input[0] || process.cwd();
-  const buildMode = flags.buildMode || constants.BUILD_MODES.DEBUG;
+  let buildMode = constants.BUILD_MODES.DEBUG;
+  // Leaving buildMode flag in for backward compatibility
+  if (flags.buildMode) {
+    console.log(`
+'--buildMode' flag has been deprecated and will be removed in a future release.
+Please use the '--release' and '--debug' flags instead.
+`);
+    buildMode = flags.buildMode;
+  } else if (flags.release) {
+    buildMode = constants.BUILD_MODES.RELEASE;
+  }
   const platforms = flags.platforms.split(',').map((p) => p.trim());
 
   // Before we start the buildbot process, will need to do the following:
@@ -73,7 +79,7 @@ function build (input, flags, options) {
       emailPrompt = () => emailConfig.askIfNotSet();
     } else {
       if (!isValidEmail(email)) {
-        return Promise.reject(`Email address "${email}" is invalid.`);
+        return Promise.reject(new Error(`Email address "${email}" is invalid.`));
       }
       // if an email has been specified, check for an entry in the user config
       // if nothing is found, save the email to global config
@@ -95,14 +101,12 @@ function build (input, flags, options) {
 
 module.exports = function (input, flags, options) {
   return build(input, flags, options).catch((err) => {
-    console.log(`
+    console.error(`
 There was a problem preparing your project:
 
 ${err}
 
 Please fix the error and try again.
 `);
-
-    process.exit(1);
   });
 };
