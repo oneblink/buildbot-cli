@@ -76,7 +76,7 @@ To login to the Buildbot CLI, see [identity-cli](https://github.com/blinkmobile/
 for available commands.
 
 `bm buildbot evergreen` supports the following options:
-- `--force` optional, overwrite any existing update zip files
+- `--force` optional, overwrite any existing update zip files, use this flag to prevent a confirmation prompt when zip files already exist 
 - `--no-upload` optional, prevent the evegreen zip files from being uploaded to remote location
 
 To zip resources for a project and upload:  
