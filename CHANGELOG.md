@@ -8,7 +8,7 @@
 
  - Will now prompt for confirmation to overwrite existing files instead of throwing an error
 
- - `--force` flag functionality has not changed, it nows by passes the confirmation prompt
+ - `--force` flag functionality has not changed, it now by passes the confirmation prompt
 
 ## 1.2.0 - 2016-09-30
 
