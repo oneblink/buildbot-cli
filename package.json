@@ -25,6 +25,7 @@
     "mockery": "^1.4.1",
     "npm-bin-ava-tester": "^1.0.0",
     "npm-run-all": "^3.1.0",
+    "proxyquire": "^1.7.10",
     "yauzl": "^2.6.0"
   },
   "dependencies": {
@@ -33,9 +34,10 @@
     "@jokeyrhyme/pify-fs": "1.0.1",
     "archiver": "1.1.0",
     "aws-sdk": "^2.5.3",
+    "chalk": "^1.1.3",
     "elegant-spinner": "^1.0.1",
     "execa": "^0.4.0",
-    "inquirer": "^1.0.3",
+    "inquirer": "^1.2.1",
     "lodash.memoize": "^4.1.2",
     "log-update": "^1.0.2",
     "meow": "3.7.0",
