@@ -2,6 +2,10 @@
 
 ## Next
 
+### Fixed
+
+- NBC-33: Fixed `bm buildbot --help` examples still referencing the `--buildMode` flag
+
 ## 1.2.0 - 2016-09-30
 
 ### Added
