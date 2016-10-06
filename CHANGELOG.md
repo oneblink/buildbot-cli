@@ -2,6 +2,10 @@
 
 ## Next
 
+### Fixed
+
+- NBC-34: Fixed evergreen uploads access control
+
 ## 1.2.0 - 2016-09-30
 
 ### Added
