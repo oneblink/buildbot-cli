@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 1.3.0 - 2016-10-07
+
 ### Changed
 
 - NBC-32: `bm buildbot evergreen` cmd with no `--force` flag functionality 
