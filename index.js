@@ -16,9 +16,7 @@ const blinkMobileIdentity = new BlinkMobileIdentity(pkg.name);
 const commands = {
   build: require('./commands/build.js'),
   evergreen: require('./commands/evergreen.js'),
-  notify: require('./commands/notify.js'),
-  login: blinkMobileIdentity.loginCommand,
-  logout: blinkMobileIdentity.logoutCommand
+  notify: require('./commands/notify.js')
 };
 
 updateNotifier({ pkg }).notify();

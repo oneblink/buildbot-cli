@@ -1,6 +1,14 @@
 # Change Log
 
-## Next
+## Unreleased
+
+### Changed
+
+- NBC-32: `bm buildbot evergreen` cmd with no `--force` flag functionality 
+
+ - Will now prompt for confirmation to overwrite existing files instead of throwing an error
+
+ - `--force` flag functionality has not changed, it now by passes the confirmation prompt
 
 ### Fixed
 

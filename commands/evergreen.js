@@ -34,8 +34,8 @@ Please ensure platforms have been added using 'cordova platform add <platform> -
       }))
         .then((existingFiles) => {
           if (existingFiles.length && !flags.force) {
-            return Promise.reject(new Error(`Evergreen update ZIPs already exist in www/
-Please remove them or use --force to overwrite`));
+            return evergreen.confirm(existingFiles)
+              .then((confirmation) => confirmation ? platforms : process.exit(0));
           }
           return platforms;
         });
