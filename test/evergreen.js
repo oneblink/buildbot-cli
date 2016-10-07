@@ -28,14 +28,10 @@ test.beforeEach((t) => {
         });
       }),
       '@blinkmobile/bm-identity': function BlinkMobileIdentity () {
-        this.assumeAWSRole = () => {
-          return Promise.resolve();
-        };
-        this.getTenants = () => {
-          return Promise.resolve({
-            current: TENANT_NAME
-          });
-        };
+        this.assumeAWSRole = () => Promise.resolve();
+        this.getTenants = () => Promise.resolve({
+          current: TENANT_NAME
+        });
       },
       './s3-uploader-factory.js': () => Promise.resolve()
     }, overrides));
@@ -99,9 +95,7 @@ test('getCurrentTenant() should resolve to current tenant', (t) => {
 test('getCurrentTenant() should reject if no current tenant is found', (t) => {
   const evergreen = t.context.getTestSubject({
     '@blinkmobile/bm-identity': function BlinkMobileIdentity () {
-      this.getTenants = () => {
-        return Promise.resolve();
-      };
+      this.getTenants = () => Promise.resolve();
     }
   });
 
