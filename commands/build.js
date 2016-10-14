@@ -108,5 +108,6 @@ ${err}
 
 Please fix the error and try again.
 `);
+    process.exit(1);
   });
 };
