@@ -14,7 +14,7 @@ function execute (input, flags, options) {
     return Promise.reject(new Error(`Unknown --type: "${flags.type}"`));
   }
 
-  console.info('Running "cordova prepare", this may take a few seconds...');
+  console.info('Creating your evergreen package - this may take a few seconds...');
   return execa('cordova', ['prepare'], { cwd: projectPath })
     .catch((err) => {
       console.log(`Current working directory: ${projectPath}`);
