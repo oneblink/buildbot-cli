@@ -74,6 +74,6 @@ ${error}
 
 Please fix the error and try again.
 `);
-      process.exit(1);
+      process.exitCode = 1;
     });
 };
