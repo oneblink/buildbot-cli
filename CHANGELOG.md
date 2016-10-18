@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+### Fixed
+
+- NBC-37: Errors exiting with incorrect code
+
+### Changed
+
+- NBC-37: Messages when running `bm buildbot evergreen` cmd
+
 ## 1.3.0 - 2016-10-07
 
 ### Changed

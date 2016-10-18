@@ -4,8 +4,8 @@
 
 iOS applications built using Cordova require two files:
 
-- Personal Information Exchange: `.p12`
-- Provisioning Profile: `.mobileprovision`
+-   Personal Information Exchange: `.p12`
+-   Provisioning Profile: `.mobileprovision`
 
 The Personal Information Exchange file must created using an Apple Developer Certificate which can be obtained with a Certificate Signing Request.
 
@@ -13,12 +13,12 @@ The Personal Information Exchange file must created using an Apple Developer Cer
 
 There are few ways to create this, below are our suggestions:
 
-####  Keychain Access (requires OSX)
+#### Keychain Access (requires OSX)
 
 During creation of your certficate in [Apple Developer Account](https://developer.apple.com/account/ "Click here to access your Apple Developer Account"),
 the second step is gives instructions on how to create a CRS using Keychain Access. Please follow these instructions to generate your CRS.
 
-####  OpenSSL
+#### OpenSSL
 
 Use the following command to create a CRS with a private key:
 
@@ -32,12 +32,12 @@ Both of these files can be obtained from your [Apple Developer Account](https://
 
 Once logged in, follow the steps below to obtain both files.
 
-1. Click the **Certificates, IDs and Profiles** link
-2. Create a new **Certificate** (or use an existing one)
-3. Download certificate
-4. Create a new **App ID** (or use an existing one), found underneath the _Identifiers_ section
-5. Create a new **Provisioning Profile** (or use and existing one), must ensure the provisioning profile uses the App ID you use from step 4 and the certificate you used from step 2
-6. Download provisioning profile
+1.  Click the **Certificates, IDs and Profiles** link
+2.  Create a new **Certificate** (or use an existing one)
+3.  Download certificate
+4.  Create a new **App ID** (or use an existing one), found underneath the _Identifiers_ section
+5.  Create a new **Provisioning Profile** (or use and existing one), must ensure the provisioning profile uses the App ID you use from step 4 and the certificate you used from step 2
+6.  Download provisioning profile
 
 ### Personal Information Exchange: `.p12`
 
@@ -46,15 +46,15 @@ you will need to create a `.p12` file to allow your private key and certificate 
 
 We recommend using _Keychain Access_ or _openssl_:
 
-####  Keychain Access (requires OSX)
+#### Keychain Access (requires OSX)
 
 Follow the steps below:
 
-1. Double click on your `.cer` file downloaded from your [Apple Developer Account](https://developer.apple.com/account/ "Click here to access your Apple Developer Account"), this will install the certificate into Keychain Access
-2. Right click on the certificate imported and click **Export**
-3. Give the file a name with the `.p12` extension and ensure the file format is **Personal Information Exchange: (.p12)**
+1.  Double click on your `.cer` file downloaded from your [Apple Developer Account](https://developer.apple.com/account/ "Click here to access your Apple Developer Account"), this will install the certificate into Keychain Access
+2.  Right click on the certificate imported and click **Export**
+3.  Give the file a name with the `.p12` extension and ensure the file format is **Personal Information Exchange: (.p12)**
 
-####  OpenSSL
+#### OpenSSL
 
 Convert Apple Developer Certificate `.cer` file to `.pem` file to allow for `.p12` file to be created:
 
