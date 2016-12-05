@@ -43,7 +43,7 @@
     "meow": "3.7.0",
     "object-merge": "2.5.1",
     "temp": "0.8.3",
-    "update-notifier": "1.0.2",
+    "update-notifier": "1.0.3",
     "uuid-validate": "0.0.2",
     "valid-email": "0.0.2",
     "xml2js": "0.4.16"
