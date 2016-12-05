@@ -7,14 +7,14 @@
     "ava": "ava",
     "lint": "eslint .",
     "make-docs": "jsdoc index.js ./lib ./commands -d ./jsdocs",
-    "test": "npm-run-all lint ava",
+    "test": "npm-run-all ava lint",
     "eslint": "eslint --fix --cache .",
     "fixpack": "fixpack"
   },
   "author": "Simon Dobie",
   "license": "BSD-3-Clause",
   "devDependencies": {
-    "ava": "^0.16.0",
+    "ava": "^0.17.0",
     "eslint": "^3.11.1",
     "eslint-config-semistandard": "^7.0.0",
     "eslint-config-standard": "^6.1.0",
@@ -23,7 +23,7 @@
     "fixpack": "^2.3.1",
     "jsdoc": "^3.4.2",
     "mockery": "^2.0.0",
-    "npm-bin-ava-tester": "^1.0.0",
+    "npm-bin-ava-tester": "^1.1.0",
     "npm-run-all": "^4.0.0",
     "proxyquire": "^1.7.10",
     "yauzl": "^2.6.0"
@@ -70,7 +70,7 @@
     "Mobility"
   ],
   "engines": {
-    "node": ">=6",
+    "node": ">=4",
     "npm": ">=3"
   },
   "publishConfig": {
