@@ -33,8 +33,10 @@ test('zip', (t) => {
   const tempZip = temp.createWriteStream({ suffix: '.zip' });
   return archive.zip(SRC_PATH, tempZip)
     .then(listZipEntries)
-    .then((entries) => t.deepEqual(entries, [
+    // entries order is non-deterministic, so .sort()!
+    // NOTE: .sort() mutates the array, but that doesn't matter here
+    .then((entries) => t.deepEqual(entries.sort(), [
       'index.html',
       'js/main.js'
-    ]));
+    ].sort()));
 });
