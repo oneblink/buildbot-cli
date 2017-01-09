@@ -7,6 +7,8 @@ let mockery;
 
 const pluginValidatorModule = '../lib/plugin-validator.js';
 
+process.chdir(__dirname); // adjust for cwd in ava 0.17+
+
 test.beforeEach(() => {
   mockery = require('mockery');
   mockery.enable({ useCleanCache: true });

@@ -1,6 +1,7 @@
 {
   "extends": [
     "eslint:recommended",
+    "plugin:node/recommended",
     "semistandard"
   ],
   "env": {
@@ -8,6 +9,10 @@
     "node": true
   },
   "rules": {
-    "no-console": 0
-  }
+    "no-console": 0,
+    "no-process-exit": 0 /* TODO: GitHub Issue #59 */
+  },
+  "plugins": [
+    "node"
+  ]
 }
