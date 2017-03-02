@@ -76,7 +76,7 @@ test('writeIfNotSet should not overwrite an existing email', (t) => {
   const userConfigMock = {
     user: {
       read: () => Promise.resolve({email: expected}),
-      write: (fn) => Promise.reject('Should not of been called')
+      write: (fn) => Promise.reject(new Error('Should not of been called'))
     }
   };
 
@@ -91,7 +91,7 @@ test('writeIfNotSet should not return an existing email', (t) => {
   const userConfigMock = {
     user: {
       read: () => Promise.resolve({email: 'a@b.com'}),
-      write: (fn) => Promise.reject('Should not of been called')
+      write: (fn) => Promise.reject(new Error('Should not of been called'))
     }
   };
 
