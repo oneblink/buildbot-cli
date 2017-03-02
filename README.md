@@ -1,4 +1,4 @@
-# Blink Buildbot CLI Tool [![npm](https://img.shields.io/npm/v/@blinkmobile/buildbot-cli.svg?maxAge=2592000)](https://www.npmjs.com/package/@blinkmobile/buildbot-cli) [![AppVeyor Status](https://ci.appveyor.com/api/projects/status/github/blinkmobile/Buildbot-cli?branch=master&svg=true)](https://ci.appveyor.com/project/blinkmobile/buildbot-cli) [![Travis CI Status](https://travis-ci.org/blinkmobile/buildbot-cli.svg?branch=master)](https://travis-ci.org/blinkmobile/buildbot-cli)
+# Blink Buildbot CLI Tool [![npm](https://img.shields.io/npm/v/@blinkmobile/buildbot-cli.svg?maxAge=2592000)](https://www.npmjs.com/package/@blinkmobile/buildbot-cli) [![AppVeyor Status](https://ci.appveyor.com/api/projects/status/github/blinkmobile/Buildbot-cli?branch=master&svg=true)](https://ci.appveyor.com/project/blinkmobile/buildbot-cli) [![Travis CI Status](https://travis-ci.org/blinkmobile/buildbot-cli.svg?branch=master)](https://travis-ci.org/blinkmobile/buildbot-cli) [![Greenkeeper badge](https://badges.greenkeeper.io/blinkmobile/buildbot-cli.svg)](https://greenkeeper.io/)
 
 This tool is for starting the BlinkMobile Buildbot process.
 
@@ -68,7 +68,7 @@ bm buildbot notify your@email.address
 
 ### Evergreen Updates
 
-iOS and Android applications allow for evergreen updates. This option will allow for resouces to be zipped into a folder per platform 
+iOS and Android applications allow for evergreen updates. This option will allow for resouces to be zipped into a folder per platform
 
 The `evergreen` command will also upload your zip files to a remote location to allow your applications to download them.
 Uploading your zip files requires users to be authenicated with a BlinkMobile Identity.
@@ -76,10 +76,10 @@ To login to the Buildbot CLI, see [identity-cli](https://github.com/blinkmobile/
 for available commands.
 
 `bm buildbot evergreen` supports the following options:
-- `--force` optional, overwrite any existing update zip files, use this flag to prevent a confirmation prompt when zip files already exist 
+- `--force` optional, overwrite any existing update zip files, use this flag to prevent a confirmation prompt when zip files already exist
 - `--no-upload` optional, prevent the evegreen zip files from being uploaded to remote location
 
-To zip resources for a project and upload:  
+To zip resources for a project and upload:
 ```sh
 bm buildbot evergreen <path-to-project-root> [--force]
 ```
