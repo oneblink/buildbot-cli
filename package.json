@@ -31,18 +31,17 @@
   },
   "devDependencies": {
     "ava": "^0.18.0",
-    "eslint": "^3.13.0",
+    "eslint": "^3.19.0",
     "eslint-config-semistandard": "^8.0.0",
-    "eslint-config-standard": "^7.0.0",
-    "eslint-plugin-node": "^4.0.0",
-    "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-standard": "^2.0.1",
+    "eslint-config-standard": "^10.2.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.2",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
     "fixpack": "^2.3.1",
-    "flow-bin": "^0.43.0",
     "jsdoc": "^3.4.2",
     "mockery": "^2.0.0",
     "npm-bin-ava-tester": "^1.1.0",
-    "npm-run-all": "^4.0.0",
     "proxyquire": "^1.7.10",
     "yauzl": "^2.6.0"
   },
@@ -74,8 +73,8 @@
     "ava": "ava",
     "eslint": "eslint --fix --cache .",
     "fixpack": "fixpack",
-    "flow_check": "flow check",
     "make-docs": "jsdoc index.js ./lib ./commands -d ./jsdocs",
-    "test": "npm-run-all -s ava eslint flow_check fixpack"
+    "pretest": "npm run fixpack",
+    "test": "npm run ava && npm run eslint"
   }
 }

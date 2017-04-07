@@ -29,7 +29,9 @@ test.afterEach(() => {
 
 test.serial('it should reject if the buildfile doesnt exist', (t) => {
   const fsMock = {
+    /* eslint-disable standard/no-callback-literal */ // fs.access API
     access: (f, cb) => cb(false)
+    /* eslint-enable standard/no-callback-literal */
   };
 
   mockery.registerAllowable('i-dont-exist');
