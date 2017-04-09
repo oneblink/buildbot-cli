@@ -26,20 +26,20 @@ test('it should have 3 working static properties', (t) => {
 
 test('it should throw when the PLATFORM static property is accessed', (t) => {
   const Validator = require(validatorModule);
-  t.throws(() => Validator.PLATFORM);
+  return t.throws(() => Validator.PLATFORM);
 });
 
 test('data getter should throw because no PLATFORM is set', (t) => {
   const Validator = require(validatorModule);
   const v = new Validator();
 
-  t.throws(() => v.data);
+  return t.throws(() => v.data);
 });
 
 test('Validator#isValid should throw ', (t) => {
   const Validator = require(validatorModule);
   const v = new Validator();
-  t.throws(v.isValid);
+  return t.throws(v.isValid);
 });
 
 test('path setter should set the path to the cordova project', (t) => {

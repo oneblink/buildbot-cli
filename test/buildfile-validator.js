@@ -38,7 +38,7 @@ test.serial('it should reject if the buildfile doesnt exist', (t) => {
   mockery.registerMock('fs', fsMock);
 
   const v = require(validatorModule);
-  t.throws(v('i-dont-exist'));
+  return t.throws(v('i-dont-exist'));
 });
 
 test.serial('it should resolve with platform string in any case', (t) => {
@@ -61,7 +61,7 @@ test.serial('it should resolve with platform string in any case', (t) => {
   mockery.registerMock('blah', goodConfig);
 
   const v = require(validatorModule);
-  return v('blah', ['WInDows'], 'debug');
+  return t.notThrows(v('blah', ['WInDows'], 'debug'));
 });
 
 test.serial('it should reject because release mode is not present', (t) => {
@@ -80,7 +80,7 @@ test.serial('it should reject because release mode is not present', (t) => {
   mockery.registerMock('blah', goodConfig);
 
   const v = require(validatorModule);
-  t.throws(v('blah', ['WInDows'], 'release'));
+  return t.throws(v('blah', ['WInDows'], 'release'));
 });
 
 test.serial('it should reject with invalid config', (t) => {
@@ -99,5 +99,5 @@ test.serial('it should reject with invalid config', (t) => {
   mockery.registerMock('blah', badConfig);
 
   const v = require(validatorModule);
-  t.throws(v('blah', ['WInDows'], 'debug'));
+  return t.throws(v('blah', ['WInDows'], 'debug'));
 });

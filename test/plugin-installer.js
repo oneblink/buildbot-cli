@@ -75,7 +75,7 @@ test('install() should resolve with the correct number of missing plugins', (t) 
     return Promise.resolve(pluginName);
   };
 
-  pi.install(input).then((numMissing) => {
+  return pi.install(input).then((numMissing) => {
     t.is(numMissing, expectedNumMissing);
   });
 });
