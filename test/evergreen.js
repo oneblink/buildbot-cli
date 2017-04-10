@@ -82,7 +82,7 @@ test('findPlatforms: android, ios', (t) => {
 test('assumeAWSRole() should resolve', (t) => {
   const evergreen = t.context.getTestSubject();
 
-  return evergreen.assumeAWSRole();
+  return t.notThrows(evergreen.assumeAWSRole());
 });
 
 test('getCurrentTenant() should resolve to current tenant', (t) => {

@@ -30,7 +30,7 @@ test('read() should reject if user email is not set in file', (t) => {
   mockery.registerMock(cfgHelperModule, userConfigMock);
   const userEmail = require(userEmailModule);
 
-  t.throws(userEmail.read(), 'No Email in user config file');
+  return t.throws(userEmail.read(), 'No Email in user config file');
 });
 
 test('write should reject if email is invalid', (t) => {
@@ -41,7 +41,7 @@ test('write should reject if email is invalid', (t) => {
   mockery.registerMock(cfgHelperModule, userConfigMock);
   const userEmail = require(userEmailModule);
 
-  t.throws(userEmail.write('invalid-email'), 'Invalid Email address');
+  return t.throws(userEmail.write('invalid-email'), 'Invalid Email address');
 });
 
 test('write should return the email address only', (t) => {
@@ -54,7 +54,7 @@ test('write should return the email address only', (t) => {
 
   mockery.registerMock(cfgHelperModule, userConfigMock);
   const userEmail = require(userEmailModule);
-  userEmail.write(expected).then((result) => t.deepEqual(result, expected));
+  return userEmail.write(expected).then((result) => t.deepEqual(result, expected));
 });
 
 test('unset should remove the email from user config', (t) => {
@@ -68,7 +68,7 @@ test('unset should remove the email from user config', (t) => {
 
   mockery.registerMock(cfgHelperModule, userConfigMock);
   const userEmail = require(userEmailModule);
-  userEmail.unset().then((result) => t.deepEqual(result.email, expected));
+  return userEmail.unset().then((result) => t.deepEqual(result.email, expected));
 });
 
 test('writeIfNotSet should not overwrite an existing email', (t) => {
@@ -83,7 +83,7 @@ test('writeIfNotSet should not overwrite an existing email', (t) => {
   mockery.registerMock(cfgHelperModule, userConfigMock);
   const userEmail = require(userEmailModule);
 
-  t.notThrows(userEmail.writeIfNotSet('a@b.com'));
+  return t.notThrows(userEmail.writeIfNotSet('a@b.com'));
 });
 
 test('writeIfNotSet should not return an existing email', (t) => {
@@ -98,5 +98,5 @@ test('writeIfNotSet should not return an existing email', (t) => {
   mockery.registerMock(cfgHelperModule, userConfigMock);
   const userEmail = require(userEmailModule);
 
-  userEmail.writeIfNotSet(expected).then((result) => t.deepEqual(result, expected));
+  return userEmail.writeIfNotSet(expected).then((result) => t.deepEqual(result, expected));
 });

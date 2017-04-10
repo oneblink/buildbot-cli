@@ -32,7 +32,7 @@ test.serial('readConfig() should reject if config.xml cannot be found', (t) => {
 
   const PV = require(pluginValidatorModule);
   const pv = new PV(process.cwd());
-  t.throws(pv.readConfig(), 'config.xml not found');
+  return t.throws(pv.readConfig(), 'config.xml not found');
 });
 
 test.serial('readConfig() should reject if config.xml cannot be read', (t) => {
@@ -45,7 +45,7 @@ test.serial('readConfig() should reject if config.xml cannot be read', (t) => {
 
   const PV = require(pluginValidatorModule);
   const pv = new PV(process.cwd());
-  t.throws(pv.readConfig(), 'Could not read config.xml');
+  return t.throws(pv.readConfig(), 'Could not read config.xml');
 });
 
 test.serial('readConfig() should return a map of plugins in config.xml', (t) => {

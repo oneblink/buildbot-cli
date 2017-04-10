@@ -30,7 +30,7 @@ test('debug mode should resolve without calling encrypt', (t) => {
     }
   };
 
-  t.notThrows(c.promptCallback(null, encryptMock));
+  return t.notThrows(c.promptCallback(null, encryptMock));
 });
 
 test('release mode call encrypt', (t) => {
