@@ -20,7 +20,7 @@
     "execa": "0.6.3",
     "inquirer": "3.0.6",
     "lodash.memoize": "4.1.2",
-    "log-update": "1.0.2",
+    "log-update": "2.0.0",
     "meow": "3.7.0",
     "object-merge": "2.5.1",
     "temp": "0.8.3",
