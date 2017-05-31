@@ -1,5 +1,6 @@
 'use strict';
 
+const chalk = require('chalk');
 const execa = require('execa');
 
 const evergreen = require('../lib/evergreen.js');
@@ -51,14 +52,16 @@ Please ensure platforms have been added using 'cordova platform add <platform> -
             if (!flags.upload) {
               return zipPath;
             }
-            return Promise.all([
-              evergreen.getCurrentTenant(options.blinkMobileIdentity),
-              cordovaProjectId(projectPath),
-              evergreen.assumeAWSRole(options.blinkMobileIdentity)
-            ])
-              .then((results) => evergreen.upload(zipPath, results[0], results[1], results[2]))
-              .then((location) => console.log(`Remote location: ${location}`))
-              .catch((error) => Promise.reject(new Error(`An error occured while attempting to upload evergreen update ZIP: ${error.message}`)));
+            return cordovaProjectId(projectPath)
+              .then((project) => {
+                return Promise.all([
+                  evergreen.getCurrentTenant(options.blinkMobileIdentity),
+                  evergreen.assumeAWSRole(project)
+                ])
+                .then((results) => evergreen.upload(zipPath, results[0], project, results[1]))
+                .then((location) => console.log(`Remote location: ${location}`))
+                .catch((error) => Promise.reject(new Error(`An error occured while attempting to upload evergreen update ZIP: ${error.message}`)));
+              });
           });
       }, Promise.resolve());
     });
@@ -70,7 +73,7 @@ module.exports = function (input, flags, options) {
       console.error(`
 There was a problem while attempting evergreen updates:
 
-${error}
+${chalk.red(error)}
 
 Please fix the error and try again.
 `);

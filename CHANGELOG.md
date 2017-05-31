@@ -1,5 +1,11 @@
 # Change Log
 
+## Unreleased
+
+### Added
+
+- NBC-44 # `bmProject` and `command` parameters to requests to assume AWS roles
+
 ## 1.3.1 - 2016-10-18
 
 ### Fixed
@@ -14,7 +20,7 @@
 
 ### Changed
 
-- NBC-32: `bm buildbot evergreen` cmd with no `--force` flag functionality 
+- NBC-32: `bm buildbot evergreen` cmd with no `--force` flag functionality
 
  - Will now prompt for confirmation to overwrite existing files instead of throwing an error
 

@@ -2,6 +2,7 @@
 
 const path = require('path');
 
+const chalk = require('chalk');
 const temp = require('temp');
 const isValidEmail = require('valid-email');
 
@@ -13,6 +14,7 @@ const startWorkflow = require('../lib/start-workflow.js');
 const emailConfig = require('../lib/user-email.js');
 const CertificatePasswords = require('../lib/certificate-passwords.js');
 const pluginHelper = require('../lib/plugin-helper.js');
+const cordovaProjectId = require('../lib/utils/cordova-project-id.js');
 
 function upload (src, credentials) {
   return archive(src)
@@ -61,7 +63,7 @@ Please use the '--release' and '--debug' flags instead.
 
   // Before we start the buildbot process, will need to do the following:
   // (Will do the local validation before attempting AWS functions)
-  // 1. Validate build.json
+  // 1. Validate build.json and config.xml
   // 2. Validate email address for notifications
   // 3. Validate cordova plugins
   // 4. Get AWS credientials to:
@@ -69,9 +71,13 @@ Please use the '--release' and '--debug' flags instead.
   //  b. Upload project to s3
   //  c. Start AWS simple workflow
 
-  return validator(path.join(src, 'build.json'), platforms, buildMode).then(() => {
+  return Promise.all([
+    validator(path.join(src, 'build.json'), platforms, buildMode),
+    cordovaProjectId(src)
+  ]).then((results) => {
     let email = flags.notify;
     let emailPrompt;
+    const project = results[1];
 
     if (!email) {
       // if no email has been specified, read it from user config.
@@ -87,14 +93,16 @@ Please use the '--release' and '--debug' flags instead.
     }
     return emailPrompt().then((promptResults) => {
       email = email || promptResults;
-      return pluginHelper(src).then(() => {
-        return options.blinkMobileIdentity.assumeAWSRole().then((assumedRole) => {
+      return pluginHelper(src)
+        .then(() => options.blinkMobileIdentity.assumeAWSRole({
+          bmProject: project,
+          command: 'build'
+        }))
+        .then((assumedRole) => {
           const passwords = new CertificatePasswords(platforms, buildMode, assumedRole);
-          return passwords.get().then((passwordsByPlatform) => {
-            return upload(src, assumedRole).then((file) => go(platforms, email, file, assumedRole, passwordsByPlatform, buildMode));
-          });
+          return passwords.get()
+            .then((passwordsByPlatform) => upload(src, assumedRole).then((file) => go(platforms, email, file, assumedRole, passwordsByPlatform, buildMode)));
         });
-      });
     });
   });
 }
@@ -104,7 +112,7 @@ module.exports = function (input, flags, options) {
     console.error(`
 There was a problem preparing your project:
 
-${err}
+${chalk.red(err)}
 
 Please fix the error and try again.
 `);
