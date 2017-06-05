@@ -4,7 +4,7 @@
 
 ### Added
 
-- NBC-44 # `bmProject` and `command` parameters to requests to assume AWS roles
+- NBC-44 # `bmProject`, `command`, and `platforms` parameters to requests to assume AWS roles
 
 ## 1.3.1 - 2016-10-18
 

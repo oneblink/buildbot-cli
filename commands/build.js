@@ -96,7 +96,8 @@ Please use the '--release' and '--debug' flags instead.
       return pluginHelper(src)
         .then(() => options.blinkMobileIdentity.assumeAWSRole({
           bmProject: project,
-          command: 'build'
+          command: 'build',
+          platforms
         }))
         .then((assumedRole) => {
           const passwords = new CertificatePasswords(platforms, buildMode, assumedRole);
