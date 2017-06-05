@@ -2,9 +2,29 @@
 
 ## Unreleased
 
+## 1.3.2 - 2017-06-05
+
 ### Added
 
 - NBC-44 # `bmProject`, `command`, and `platforms` parameters to requests to assume AWS roles
+
+### Dependencies
+
+-   update [@blinkmobile/bm-identity](https://www.npmjs.com/package/@blinkmobile/bm-identity) to [2.3.4](https://github.com/blinkmobile/bm-identity.js/releases/tag/2.3.4) (from [2.1.0](https://github.com/blinkmobile/bm-identity.js/releases/tag/2.1.0))
+
+-   update [archiver](https://www.npmjs.com/package/archiver) to [1.3.0](https://github.com/archiverjs/node-archiver/releases/tag/1.3.0) (from [1.1.0](https://github.com/archiverjs/node-archiver/releases/tag/1.1.0))
+
+-   update [aws-sdk](https://www.npmjs.com/package/aws-sdk) to [2.62.0](https://github.com/aws/aws-sdk-js/releases/tag/v2.62.0) (from [2.6.9](https://github.com/aws/aws-sdk-js/releases/tag/v2.6.9))
+
+-   update [execa](https://www.npmjs.com/package/execa) to 0.6.3 (from 0.5.0)
+
+-   update [inquirer](https://www.npmjs.com/package/inquirer) to [3.0.6](https://github.com/SBoudrias/Inquirer.js/releases/tag/v3.0.6) (from 1.2.2)
+
+-   update [log-update](https://www.npmjs.com/package/log-update) to 2.0.0 (from 1.0.2)
+
+-   update [update-notifier](https://www.npmjs.com/package/update-notifier) to 2.1.0 (from [1.0.2](https://github.com/yeoman/update-notifier/releases/tag/v1.0.2))
+
+-   update [xml2js](https://www.npmjs.com/package/xml2js) to 0.4.17 (from 0.4.16)
 
 ## 1.3.1 - 2016-10-18
 

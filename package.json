@@ -1,7 +1,7 @@
 {
   "name": "@blinkmobile/buildbot-cli",
   "description": "CLI for Blink Mobiles Cloud based Hybrid app builders",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "author": "Simon Dobie",
   "bin": {
     "blinkm-buildbot": "./bin/index.js"
