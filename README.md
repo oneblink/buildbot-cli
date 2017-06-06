@@ -1,6 +1,6 @@
-# Blink Buildbot CLI Tool [![npm](https://img.shields.io/npm/v/@blinkmobile/buildbot-cli.svg?maxAge=2592000)](https://www.npmjs.com/package/@blinkmobile/buildbot-cli) [![AppVeyor Status](https://ci.appveyor.com/api/projects/status/github/blinkmobile/Buildbot-cli?branch=master&svg=true)](https://ci.appveyor.com/project/blinkmobile/buildbot-cli) [![Travis CI Status](https://travis-ci.org/blinkmobile/buildbot-cli.svg?branch=master)](https://travis-ci.org/blinkmobile/buildbot-cli) [![Greenkeeper badge](https://badges.greenkeeper.io/blinkmobile/buildbot-cli.svg)](https://greenkeeper.io/)
+# blinkmobile / buildbot-cli [![npm](https://img.shields.io/npm/v/@blinkmobile/buildbot-cli.svg?maxAge=2592000)](https://www.npmjs.com/package/@blinkmobile/buildbot-cli) [![AppVeyor Status](https://ci.appveyor.com/api/projects/status/github/blinkmobile/Buildbot-cli?branch=master&svg=true)](https://ci.appveyor.com/project/blinkmobile/buildbot-cli) [![Travis CI Status](https://travis-ci.org/blinkmobile/buildbot-cli.svg?branch=master)](https://travis-ci.org/blinkmobile/buildbot-cli) [![Greenkeeper badge](https://badges.greenkeeper.io/blinkmobile/buildbot-cli.svg)](https://greenkeeper.io/)
 
-This tool is for starting the BlinkMobile Buildbot process.
+CLI to build hybrid apps with BlinkMobile.
 
 ## Installation
 
@@ -8,78 +8,66 @@ This tool is for starting the BlinkMobile Buildbot process.
 npm install -g @blinkmobile/cli @blinkmobile/identity-cli @blinkmobile/buildbot-cli
 ```
 
+## Documentation
+
+See the [Documentation](./docs/README.md) directory for more details.
+
 ## Usage
 
-`blinkm buildbot --help`
-
-or, shorter
-
-`bm buildbot --help`
-
-### Submitting an app for building
-
-The `build` command requires users to be authenicated with a BlinkMobile Identity.
-To login to the Buildbot CLI, see [identity-cli](https://github.com/blinkmobile/identity-cli)
-for available commands.
-
-Once you have been authenicated, you can submit your hybrid project for building
-by using the `build` command.
-
-`bm buildbot build` supports the following options:
-- `<path-to-project-root>` optional, defaults to the current working directory
-- `--notify your@email.address` optional, defaults to the address `notify` command, if unset, a prompt will ask for an address
-- `--platforms android,ios,windows`
-- `--release`
-- `--debug`
-
-To build a release version:
 ```sh
-bm buildbot build [<path-to-project-root>] --platforms <comma-seperated-list-of-platforms> [--buildMode release] --notify <your email>
+blinkm buildbot --help
+
+# or, shorter
+bm buildbot --help
 ```
 
-To build a debug version:
-```sh
-bm buildbot build [<path-to-project-root>] --platforms <comma-seperated-list-of-platforms> --buildMode debug --notify <your email>`
+```
+Usage: blinkm buildbot <command>
+
+Where command is one of:
+
+  build, evergreen, notify
+
+Settings:
+
+  notify your@email.com         => save the email address
+  notify                        => show the saved email address
+    --unset                     => remove the saved email address
+
+Submitting project files to our build service:
+
+  The build and evergreen commands require a login to BlinkMobile before use.
+  For help on the login and logout commands please see:
+  https://github.com/blinkmobile/identity-cli#usage
+
+  build <project_path>          => submit files, notify via saved email
+                                     omit <project_path> to use working dir
+    --release                   => build the application in release mode
+    --debug                     => build the application in debug mode (default)
+    --notify your@email.com     => notify this email this time
+    --platforms platforms       => comma separated list of platforms
+
+Evergreen update:
+
+  The evergreen command also requires a tenant be set before use.
+  For help on the setting a tenant please see:
+  https://github.com/blinkmobile/identity-cli#manage-tenants
+
+  evergreen <project_path>      => generate evergreen update ZIPs
+                                     omit <project_path> to use working dir
+    --force                     => overwrite existing files without confirmation
+    --no-upload                 => prevent upload of ZIPs
+    --type <evergreen_type>     => type of project (optional, defaults to 'cordova')
+
+Examples
+  bm buildbot build --release
+  bm buildbot build ./cordova-project --platforms android,ios,windows
+  bm buildbot evergreen
+  bm buildbot evergreen ./cordova-project --force
+  bm buildbot notify
+  bm buildbot notify your@email.com
 ```
 
 #### Supported Platform
 
-See the [docs folder](https://github.com/blinkmobile/buildbot-cli/tree/master/docs) for detailed usage information on each supported platform.
-
-### Notifications
-
-To be notified of the result you can supply the email address via the `--notify` flag for the `build` command, or you can store the email in the user specific `blinkmrc.json` file using the `notify` command.
-
-`bm buildbot notify` will show the currently stored email address
-- `your@email.address` will store the email address
-- `--unset` will remove the stored email address
-
-Running the build command with the `--notify` flag will take precedence over the stored email address.
-
-To display the email address to be notified:
-```sh
-bm buildbot notify
-```
-
-To set the email address to be notified:
-```sh
-bm buildbot notify your@email.address
-```
-
-### Evergreen Updates
-
-iOS and Android applications allow for evergreen updates. This option will allow for resouces to be zipped into a folder per platform
-
-The `evergreen` command will also upload your zip files to a remote location to allow your applications to download them.
-Uploading your zip files requires users to be authenicated with a BlinkMobile Identity.
-To login to the Buildbot CLI, see [identity-cli](https://github.com/blinkmobile/identity-cli)
-for available commands.
-
-`bm buildbot evergreen` supports the following options:
-- `--force` optional, overwrite any existing update zip files, use this flag to prevent a confirmation prompt when zip files already exist
-- `--no-upload` optional, prevent the evegreen zip files from being uploaded to remote location
-
-To zip resources for a project and upload:
-```sh
-bm buildbot evergreen <path-to-project-root> [--force]
-```
+See [Supported Platforms](./docs/README.md#supported-platforms) of the Documentation for detailed usage information on each supported platform.
