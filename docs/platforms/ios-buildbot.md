@@ -1,6 +1,8 @@
-# iOS Buildbot
+# blinkmobile / buildbot-cli
 
-## Required Files for Signing
+## iOS Buildbot
+
+### Required Files for Signing
 
 iOS applications built using Cordova require two files:
 
@@ -9,16 +11,16 @@ iOS applications built using Cordova require two files:
 
 The Personal Information Exchange file must created using an Apple Developer Certificate which can be obtained with a Certificate Signing Request.
 
-### Certificate Signing Request (CSR)
+#### Certificate Signing Request (CSR)
 
 There are few ways to create this, below are our suggestions:
 
-#### Keychain Access (requires OSX)
+##### Keychain Access (requires OSX)
 
-During creation of your certficate in [Apple Developer Account](https://developer.apple.com/account/ "Click here to access your Apple Developer Account"),
+During creation of your certificate in [Apple Developer Account](https://developer.apple.com/account/ "Click here to access your Apple Developer Account"),
 the second step is gives instructions on how to create a CRS using Keychain Access. Please follow these instructions to generate your CRS.
 
-#### OpenSSL
+##### OpenSSL
 
 Use the following command to create a CRS with a private key:
 
@@ -26,7 +28,7 @@ Use the following command to create a CRS with a private key:
 openssl req -newkey rsa:2048 -keyout path/to/your/private_key.key -out path/to/your/certificate_signing_request.csr
 ```
 
-### Certificate & Provisioning Profile
+#### Certificate & Provisioning Profile
 
 Both of these files can be obtained from your [Apple Developer Account](https://developer.apple.com/account/ "Click here to access your Apple Developer Account").
 
@@ -39,14 +41,14 @@ Once logged in, follow the steps below to obtain both files.
 5.  Create a new **Provisioning Profile** (or use and existing one), must ensure the provisioning profile uses the App ID you use from step 4 and the certificate you used from step 2
 6.  Download provisioning profile
 
-### Personal Information Exchange: `.p12`
+#### Personal Information Exchange: `.p12`
 
 Once you have your certificate generated via your [Apple Developer Account](https://developer.apple.com/account/ "Click here to access your Apple Developer Account"),
 you will need to create a `.p12` file to allow your private key and certificate to be transferred to the Buildbot to sign the App with.
 
 We recommend using _Keychain Access_ or _openssl_:
 
-#### Keychain Access (requires OSX)
+##### Keychain Access (requires OSX)
 
 Follow the steps below:
 
@@ -54,7 +56,7 @@ Follow the steps below:
 2.  Right click on the certificate imported and click **Export**
 3.  Give the file a name with the `.p12` extension and ensure the file format is **Personal Information Exchange: (.p12)**
 
-#### OpenSSL
+##### OpenSSL
 
 Convert Apple Developer Certificate `.cer` file to `.pem` file to allow for `.p12` file to be created:
 
@@ -62,13 +64,13 @@ Convert Apple Developer Certificate `.cer` file to `.pem` file to allow for `.p1
 openssl x509 -in path/to/your/certificate.cer -inform DER -out path/to/your/certificate.pem -outform PEM
 ```
 
-Create `.p12` using your private key `.key` (genenerated with your Certificate Signing Request) and your certificate `.pem` (generated in the previous step):
+Create `.p12` using your private key `.key` (generated with your Certificate Signing Request) and your certificate `.pem` (generated in the previous step):
 
 ```sh
 openssl pkcs12 -export -inkey path/to/your/private_key.key -in path/to/your/certificate.pem -out path/to/your/ios_development.p12
 ```
 
-## build.json
+### build.json
 
 With your Provisioning Profile and Personal Information Exchange you can set up your `build.json` file for signing the application. Below are the properties required and a description of each:
 
@@ -79,7 +81,7 @@ provisioningProfile	    |UUID of the provisioning profile to be used for signing
 provisioningProfileFile	|A relative path to the Provisioning Profile (`.mobileprovision`) file downloaded from your Apple Developer Account. This file must be included in your Cordova project to be uploaded to the Buildbot.
 certificateFile		    |A relative path to the personal information exchange (`.p12`) file created via _Keychain Access_ or _openssl_. This file must be included in your Cordova project to be uploaded to the Buildbot.
 
-### Example
+#### Example
 
 ```json
 {
@@ -100,7 +102,7 @@ certificateFile		    |A relative path to the personal information exchange (`.p1
 }
 ```
 
-## Cordova Project Id
+### Cordova Project Id
 
 Lastly the Cordova project id must match the App ID you use in your provisioning profile. The project id can be edited from the `config.xml` file in your Cordova project. It is the `id` attribute of the `widget` tag.
 
