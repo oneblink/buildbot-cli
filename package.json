@@ -27,7 +27,7 @@
     "update-notifier": "2.2.0",
     "uuid-validate": "0.0.2",
     "valid-email": "0.0.2",
-    "xml2js": "0.4.17"
+    "xml2js": "0.4.18"
   },
   "devDependencies": {
     "ava": "^0.21.0",
