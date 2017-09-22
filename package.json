@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@blinkmobile/blinkmrc": "1.1.0",
-    "@blinkmobile/bm-identity": "2.3.4",
+    "@blinkmobile/bm-identity": "3.0.0",
     "@jokeyrhyme/pify-fs": "1.0.1",
     "archiver": "2.0.3",
     "aws-sdk": "2.121.0",
