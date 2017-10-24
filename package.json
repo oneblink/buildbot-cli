@@ -14,7 +14,7 @@
     "@blinkmobile/bm-identity": "2.3.4",
     "@jokeyrhyme/pify-fs": "1.0.1",
     "archiver": "2.1.0",
-    "aws-sdk": "2.139.0",
+    "aws-sdk": "2.140.0",
     "chalk": "2.3.0",
     "elegant-spinner": "1.0.1",
     "execa": "0.8.0",
@@ -30,7 +30,7 @@
     "xml2js": "0.4.19"
   },
   "devDependencies": {
-    "ava": "^0.22.0",
+    "ava": "^0.23.0",
     "eslint": "^4.0.0",
     "eslint-config-semistandard": "^11.0.0",
     "eslint-config-standard": "^10.2.0",
