@@ -64,7 +64,7 @@ Please ensure platforms have been added using 'cordova platform add <platform> -
                   }
                   return evergreen.upload(zipPath, tenant, project, credentials)
                     .then((location) => console.log(`Remote location: ${location}`))
-                    .catch((error) => Promise.reject(new Error(`An error occured while attempting to upload evergreen update ZIP: ${error.message}`)));
+                    .catch((error) => Promise.reject(new Error(`An error occurred while attempting to upload evergreen update ZIP: ${error.message}`)));
                 });
             }, Promise.resolve());
           });

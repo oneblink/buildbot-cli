@@ -11,7 +11,7 @@ test.beforeEach(() => {
   mockery.registerAllowable(pluginInstallerModule, true);
   mockery.registerAllowables(['execa', 'mockery', 'module']);
   mockery.warnOnUnregistered(false);
-  console.log = function () {}; // supress log outputs.
+  console.log = function () {}; // suppress log outputs.
 });
 
 test.afterEach(() => {
