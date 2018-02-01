@@ -51,23 +51,23 @@ Please ensure platforms have been added using 'cordova platform add <platform> -
             evergreen.getCurrentTenant(),
             evergreen.assumeAWSRole(project, platforms)
           ])
-          .then((results) => {
-            const tenant = results[0];
-            const credentials = results[1];
-            // (prev: Promise, platform: String) => Promise
-            return platforms.reduce((prev, platform) => {
-              return prev.then(() => evergreen.zipPlatform(projectPath, platform))
-                .then((zipPath) => {
-                  console.log(`Created: ${zipPath}`);
-                  if (!flags.upload) {
-                    return zipPath;
-                  }
-                  return evergreen.upload(zipPath, tenant, project, credentials)
-                    .then((location) => console.log(`Remote location: ${location}`))
-                    .catch((error) => Promise.reject(new Error(`An error occurred while attempting to upload evergreen update ZIP: ${error.message}`)));
-                });
-            }, Promise.resolve());
-          });
+            .then((results) => {
+              const tenant = results[0];
+              const credentials = results[1];
+              // (prev: Promise, platform: String) => Promise
+              return platforms.reduce((prev, platform) => {
+                return prev.then(() => evergreen.zipPlatform(projectPath, platform))
+                  .then((zipPath) => {
+                    console.log(`Created: ${zipPath}`);
+                    if (!flags.upload) {
+                      return zipPath;
+                    }
+                    return evergreen.upload(zipPath, tenant, project, credentials)
+                      .then((location) => console.log(`Remote location: ${location}`))
+                      .catch((error) => Promise.reject(new Error(`An error occurred while attempting to upload evergreen update ZIP: ${error.message}`)));
+                  });
+              }, Promise.resolve());
+            });
         });
     });
 }
