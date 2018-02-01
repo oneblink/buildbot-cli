@@ -1,9 +1,8 @@
 language: node_js
 sudo: false
 node_js:
-  - '4'
   - '6'
-  - '7'
+  - '8'
 env:
   global:
     - CXX=g++-4.8
@@ -15,5 +14,4 @@ addons:
       - g++-4.8
 install:
   - npm install --global npm
-  - npm install --global yarn
   - npm install
