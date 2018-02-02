@@ -2,6 +2,30 @@
 
 ## Unreleased
 
+## 1.4.0 - 2018-02-02
+
+### Dependencies
+
+-   update [@blinkmobile/bm-identity](https://www.npmjs.com/package/@blinkmobile/bm-identity) to [4.0.0](https://github.com/blinkmobile/bm-identity.js/releases/tag/4.0.0) (from [2.3.4](https://github.com/blinkmobile/bm-identity.js/releases/tag/2.3.4))
+
+-   update [archiver](https://www.npmjs.com/package/archiver) to [2.1.1](https://github.com/archiverjs/node-archiver/releases/tag/2.1.1) (from [1.3.0](https://github.com/archiverjs/node-archiver/releases/tag/1.3.0))
+
+-   update [aws-sdk](https://www.npmjs.com/package/aws-sdk) to [2.188.0](https://github.com/aws/aws-sdk-js/releases/tag/v2.188.0) (from [2.62.0](https://github.com/aws/aws-sdk-js/releases/tag/v2.62.0))
+
+-   update [chalk](https://www.npmjs.com/package/chalk) to [2.3.0](https://github.com/chalk/chalk/releases/tag/v2.3.0) (from 1.1.3)
+
+-   update [execa](https://www.npmjs.com/package/execa) to 0.9.0 (from 0.6.3)
+
+-   update [inquirer](https://www.npmjs.com/package/inquirer) to [5.0.1](https://github.com/SBoudrias/Inquirer.js/releases/tag/v5.0.1) (from [3.0.6](https://github.com/SBoudrias/Inquirer.js/releases/tag/v3.0.6))
+
+-   update [log-update](https://www.npmjs.com/package/log-update) to 2.3.0 (from 2.0.0)
+
+-   update [meow](https://www.npmjs.com/package/meow) to [4.0.0](https://github.com/sindresorhus/meow/releases/tag/v4.0.0) (from 3.7.0)
+
+-   update [update-notifier](https://www.npmjs.com/package/update-notifier) to 2.3.0 (from 2.1.0)
+
+-   update [xml2js](https://www.npmjs.com/package/xml2js) to 0.4.19 (from 0.4.17)
+
 ## 1.3.2 - 2017-06-05
 
 ### Added
