@@ -21,7 +21,7 @@
     "inquirer": "5.1.0",
     "lodash.memoize": "4.1.2",
     "log-update": "2.3.0",
-    "meow": "4.0.0",
+    "meow": "4.0.1",
     "object-merge": "2.5.1",
     "temp": "0.8.3",
     "update-notifier": "2.3.0",
