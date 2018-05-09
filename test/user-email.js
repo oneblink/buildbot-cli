@@ -11,7 +11,7 @@ test.beforeEach(() => {
   mockery.enable({ useCleanCache: true })
   mockery.registerAllowable(userEmailModule, true)
   mockery.warnOnUnregistered(false)
-  mockery.registerAllowables(['inquirer', 'valid-email', '../constants.js'])
+  mockery.registerAllowables(['inquirer', 'email-validator', '../constants.js'])
 })
 
 test.afterEach(() => {

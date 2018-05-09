@@ -1,6 +1,6 @@
 'use strict'
 
-const isValidEmail = require('valid-email')
+const isValidEmail = require('email-validator').validate
 
 const userEmailSettings = require('../lib/user-email.js')
 

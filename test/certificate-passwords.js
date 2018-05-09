@@ -14,7 +14,7 @@ test.beforeEach(() => {
   mockery.warnOnUnregistered(false)
   mockery.registerAllowables([
     'inquirer',
-    'valid-email',
+    'email-validator',
     '../constants.js',
     encryptModule])
 })

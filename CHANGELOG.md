@@ -2,6 +2,24 @@
 
 ## Unreleased
 
+## 1.3.4 - 2018-05-09
+
+-   update [aws-sdk](https://www.npmjs.com/package/aws-sdk) to [2.235.1](https://github.com/aws/aws-sdk-js/releases/tag/v2.235.1) (from [2.188.0](https://github.com/aws/aws-sdk-js/releases/tag/v2.188.0))
+
+-   update [chalk](https://www.npmjs.com/package/chalk) to [2.4.1](https://github.com/chalk/chalk/releases/tag/v2.4.1) (from [2.3.0](https://github.com/chalk/chalk/releases/tag/v2.3.0))
+
+-   update [execa](https://www.npmjs.com/package/execa) to 0.10.0 (from 0.9.0)
+
+-   update [inquirer](https://www.npmjs.com/package/inquirer) to [5.2.0](https://github.com/SBoudrias/Inquirer.js/releases/tag/v5.2.0) (from [5.0.1](https://github.com/SBoudrias/Inquirer.js/releases/tag/v5.0.1))
+
+-   update [meow](https://www.npmjs.com/package/meow) to 5.0.0 (from 4.0.0)
+
+-   update [update-notifier](https://www.npmjs.com/package/update-notifier) to 2.5.0 (from 2.3.0)
+
+-   no longer depend upon [valid-email](https://www.npmjs.com/package/valid-email)
+
+-   depend upon [email-validator](https://www.npmjs.com/package/email-validator) [2.0.3](https://github.com/manishsaraan/email-validator/blob/master/CHANGELOG.md)
+
 ## 1.3.3 - 2018-02-02
 
 ### Dependencies

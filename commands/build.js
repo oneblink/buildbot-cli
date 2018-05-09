@@ -4,7 +4,7 @@ const path = require('path')
 
 const chalk = require('chalk')
 const temp = require('temp')
-const isValidEmail = require('valid-email')
+const isValidEmail = require('email-validator').validate
 
 const constants = require('../lib/constants.js')
 const archive = require('../lib/archive.js').archive
