@@ -19,7 +19,7 @@
     "elegant-spinner": "1.0.1",
     "email-validator": "2.0.3",
     "execa": "0.10.0",
-    "inquirer": "5.2.0",
+    "inquirer": "6.0.0",
     "lodash.memoize": "4.1.2",
     "log-update": "2.3.0",
     "meow": "5.0.0",
