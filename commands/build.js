@@ -15,6 +15,7 @@ const emailConfig = require('../lib/user-email.js')
 const CertificatePasswords = require('../lib/certificate-passwords.js')
 const pluginHelper = require('../lib/plugin-helper.js')
 const cordovaProjectId = require('../lib/utils/cordova-project-id.js')
+const assumeAWSRole = require('../lib/assume-aws-role.js')
 
 function upload (src, credentials) {
   return archive(src)
@@ -94,9 +95,9 @@ Please use the '--release' and '--debug' flags instead.
     return emailPrompt().then((promptResults) => {
       email = email || promptResults
       return pluginHelper(src)
-        .then(() => options.blinkMobileIdentity.assumeAWSRole({
-          bmProject: project,
-          command: 'build',
+        .then(() => options.blinkMobileIdentity.getAccessToken())
+        .then((accessToken) => assumeAWSRole.forBuild(accessToken, {
+          project,
           platforms
         }))
         .then((assumedRole) => {

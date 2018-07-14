@@ -14,34 +14,35 @@
     "@blinkmobile/bm-identity": "4.0.1",
     "@jokeyrhyme/pify-fs": "1.0.1",
     "archiver": "2.1.1",
-    "aws-sdk": "2.235.1",
+    "aws-sdk": "2.275.1",
     "chalk": "2.4.1",
     "elegant-spinner": "1.0.1",
-    "email-validator": "2.0.3",
+    "email-validator": "2.0.4",
     "execa": "0.10.0",
     "inquirer": "5.2.0",
     "lodash.memoize": "4.1.2",
     "log-update": "2.3.0",
     "meow": "5.0.0",
     "object-merge": "2.5.1",
+    "request": "2.87.0",
     "temp": "0.8.3",
     "update-notifier": "2.5.0",
-    "uuid-validate": "0.0.2",
+    "uuid-validate": "0.0.3",
     "xml2js": "0.4.19"
   },
   "devDependencies": {
     "ava": "^0.25.0",
-    "eslint": "^4.19.1",
+    "eslint": "^5.1.0",
     "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-standard": "^3.1.0",
     "fixpack": "^2.3.1",
     "mockery": "^2.1.0",
     "npm-bin-ava-tester": "^1.1.0",
     "proxyquire": "^2.0.1",
-    "yauzl": "^2.9.1"
+    "yauzl": "^2.10.0"
   },
   "directories": {
     "doc": "docs",
@@ -49,7 +50,7 @@
   },
   "engines": {
     "node": ">=6",
-    "npm": ">=3"
+    "npm": ">=6"
   },
   "homepage": "https://github.com/blinkmobile/buildbot-cli#readme",
   "keywords": [

@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Changed
+
+-   AWS credentials retrieval to use buildbot service instead of `@blinkmobile/bm-identity`
+
 ## 1.3.4 - 2018-05-09
 
 -   update [aws-sdk](https://www.npmjs.com/package/aws-sdk) to [2.235.1](https://github.com/aws/aws-sdk-js/releases/tag/v2.235.1) (from [2.188.0](https://github.com/aws/aws-sdk-js/releases/tag/v2.188.0))
