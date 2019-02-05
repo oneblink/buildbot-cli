@@ -14,7 +14,7 @@
     "@blinkmobile/bm-identity": "4.0.1",
     "@jokeyrhyme/pify-fs": "1.0.1",
     "archiver": "2.1.1",
-    "aws-sdk": "2.235.1",
+    "aws-sdk": "2.397.0",
     "chalk": "2.4.1",
     "elegant-spinner": "1.0.1",
     "email-validator": "2.0.3",
